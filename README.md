@@ -119,7 +119,7 @@ Test observations are ranked by epistemic variance and abstained from in order o
 
 ### Risk-coverage curve (BNN-MB)
 
-![Risk-coverage curve](results/figures/curve66.png)
+![Risk-coverage curve](curve_new.png)
 
 Uncertainty-guided abstention beats random abstention across almost the whole coverage range. The trade-off is lower coverage: fewer policyholders receive an automated prediction.
 
