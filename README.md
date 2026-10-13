@@ -151,25 +151,7 @@ Then download the dataset into `data/raw/` and run the notebooks in order (`01` 
 
 Future work: validation on other markets, temporal backtesting, extension to claim severity, and a calibrated abstention threshold for a full selective-prediction triage system.
 
----
 
-## Citation
-
-If you use this work, please cite:
-
-```bibtex
-@article{khan2026markovblanketbnn,
-  title   = {Markov Blanket Feature Selection with Bayesian Neural Networks for Motor Insurance Claim Prediction: An Actuarial Benchmark},
-  author  = {Khan, Umair Mohammed and Megrez, Nasreddine},
-  journal = {Annals of Actuarial Science},
-  year    = {2026},
-  note    = {Manuscript}
-}
-```
-
-Update the entry with volume, pages and DOI once published.
-
----
 
 ## Authors
 
