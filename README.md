@@ -14,8 +14,8 @@ It compares a GLM, XGBoost and a Bayesian neural network (BNN), each trained wit
 
 - Predictive Permutation Feature Selection (PPFS) cut the feature space from **41 to 12** (70.73% reduction), with performance maintained or marginally improved for all three models.
 - GLM, XGBoost and BNN, each with and without Markov blanket selection, on one fixed stratified split.
-- Results showed XGBoost-MB had the best performance (AUC-ROC 0.963, F1 0.793), with BNN-MB close behind (AUC-ROC 0.960, F1 0.784). All pairwise AUC-ROC differences are significant by DeLong test.
-- Ranking BNN-MB test predictions by epistemic variance and abstaining on the most uncertain cases raises F1 to about 0.94 at 60% coverage(peak about 0.98 at 30-35%), versus a flat 0.77-0.80 under random abstention at matched coverage.
+- Results showed XGBoost-MB achieved the best overall performance (AUC-ROC 0.9634, F1 0.7925), with BNN-MB close behind (AUC-ROC 0.9599, F1 0.7861). The BNN-MB improved on the full-feature BNN in both AUC-ROC and F1 while using 12 rather than 41 features.
+- Ranking BNN-MB test predictions by epistemic variance and abstaining on the most uncertain cases raises F1 to about 0.94 at 60% coverage(peak about 20% coverage), versus a flat 0.77-0.80 under random abstention at matched coverage.
 
 ---
 
@@ -98,26 +98,28 @@ Test observations are ranked by epistemic variance and abstained from in order o
 
 ### Performance on the test set
 
+
 | Model | Features | Accuracy | F1 | Precision | Recall | AUC-ROC | Brier |
-|---|---|---|---|---|---|---|---|
+|---|---:|---:|---:|---:|---:|---:|---:|
 | GLM | 41 | 0.8878 | 0.7377 | 0.6850 | 0.7992 | 0.9331 | 0.0984 |
 | XGBoost | 41 | 0.9170 | 0.7867 | 0.7979 | 0.7758 | 0.9625 | 0.0607 |
-| BNN | 41 | 0.9019 | 0.7682 | 0.7202 | 0.8229 | 0.9533 | 0.0836 |
+| BNN | 41 | 0.9046 | 0.7707 | 0.7329 | 0.8127 | 0.9550 | 0.0828 |
 | GLM-MB | 12 | 0.8880 | 0.7384 | 0.6849 | 0.8010 | 0.9342 | 0.1003 |
 | XGBoost-MB | 12 | 0.9166 | 0.7925 | 0.7786 | 0.8070 | 0.9634 | 0.0608 |
-| BNN-MB | 12 | 0.914 | 0.784 | 0.7781 | 0.7899 | 0.9602 | 0.0811 |
+| BNN-MB | 12 | 0.9119 | 0.7861 | 0.7542 | 0.8209 | 0.9599 | 0.0793 |
+
 
 ### Training time
 
 | Model | Without MB (s) | With MB (s) | Reduction |
 |---|---|---|---|
-| GLM | 0.74 | 0.45 | 39.19% |
-| XGBoost | 5.19 | 1.30 | 74.95% |
-| BNN | 107.15 | 96.10 | 10.31% |
+| GLM | 0.80 | 0.36 | 55.00% |
+| XGBoost | 5.25 | 1.25 | 76.19% |
+| BNN | 106.12 | 98.75 | 6.94% |
 
 ### Risk-coverage curve (BNN-MB)
 
-![Risk-coverage curve](results/figures/curve5.png)
+![Risk-coverage curve](results/figures/curve66.png)
 
 Uncertainty-guided abstention beats random abstention across almost the whole coverage range. The trade-off is lower coverage: fewer policyholders receive an automated prediction.
 
