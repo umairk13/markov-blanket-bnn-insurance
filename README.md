@@ -96,6 +96,9 @@ Test observations are ranked by epistemic variance and abstained from in order o
 
 ## Results
 
+All reported results are based on a single run using fixed random seeds.
+Small numerical differences may arise across software versions and hardware.
+
 ### Performance on the test set
 
 
