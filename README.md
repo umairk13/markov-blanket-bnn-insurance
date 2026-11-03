@@ -1,5 +1,3 @@
-
-
 # markov-blanket-bnn-insurance
 
 **Markov blanket feature selection with Bayesian neural networks for motor insurance claim prediction: an actuarial benchmark.**
@@ -14,8 +12,8 @@ It compares a GLM, XGBoost and a Bayesian neural network (BNN), each trained wit
 
 - Predictive Permutation Feature Selection (PPFS) cut the feature space from **41 to 12** (70.73% reduction), with performance maintained or marginally improved for all three models.
 - GLM, XGBoost and BNN, each with and without Markov blanket selection, on one fixed stratified split.
-- Results showed XGBoost-MB achieved the best overall performance (AUC-ROC 0.9634, F1 0.7925), with BNN-MB close behind (AUC-ROC 0.9599, F1 0.7861). The BNN-MB improved on the full-feature BNN in both AUC-ROC and F1 while using 12 rather than 41 features.
-- Ranking BNN-MB test predictions by epistemic variance and abstaining on the most uncertain cases raises F1 to about 0.94 at 60% coverage(peak about 20% coverage), versus a flat 0.77-0.80 under random abstention at matched coverage.
+- Results showed XGBoost-MB achieved the best overall performance (AUC-ROC 0.9636, F1 0.7944), with BNN-MB close behind (AUC-ROC 0.9598, F1 0.7866). The BNN-MB improved on the full-feature BNN in both AUC-ROC (0.9535) and F1 (0.7679) while using 12 rather than 41 features.
+- Ranking BNN-MB test predictions by epistemic variance and abstaining on the most uncertain cases raises F1 to about 0.93 at 60% coverage (peak of about 0.97 near 45% coverage), versus a flat 0.78-0.80 under random abstention at matched coverage.
 
 ---
 
@@ -104,21 +102,21 @@ Small numerical differences may arise across software versions and hardware.
 
 | Model | Features | Accuracy | F1 | Precision | Recall | AUC-ROC | Brier |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| GLM | 41 | 0.8878 | 0.7377 | 0.6850 | 0.7992 | 0.9331 | 0.0984 |
-| XGBoost | 41 | 0.9170 | 0.7867 | 0.7979 | 0.7758 | 0.9625 | 0.0607 |
-| BNN | 41 | 0.9046 | 0.7707 | 0.7329 | 0.8127 | 0.9550 | 0.0828 |
-| GLM-MB | 12 | 0.8880 | 0.7384 | 0.6849 | 0.8010 | 0.9342 | 0.1003 |
-| XGBoost-MB | 12 | 0.9166 | 0.7925 | 0.7786 | 0.8070 | 0.9634 | 0.0608 |
-| BNN-MB | 12 | 0.9119 | 0.7861 | 0.7542 | 0.8209 | 0.9599 | 0.0793 |
+| GLM | 41 | 0.8879 | 0.7378 | 0.6853 | 0.7989 | 0.9330 | 0.0982 |
+| XGBoost | 41 | 0.9182 | 0.7911 | 0.7979 | 0.7843 | 0.9628 | 0.0603 |
+| BNN | 41 | 0.9058 | 0.7679 | 0.7472 | 0.7896 | 0.9535 | 0.0803 |
+| GLM-MB | 12 | 0.8883 | 0.7389 | 0.6860 | 0.8006 | 0.9342 | 0.1002 |
+| XGBoost-MB | 12 | 0.9174 | 0.7944 | 0.7806 | 0.8088 | 0.9636 | 0.0606 |
+| BNN-MB | 12 | 0.9093 | 0.7866 | 0.7339 | 0.8475 | 0.9598 | 0.0786 |
 
 
 ### Training time
 
 | Model | Without MB (s) | With MB (s) | Reduction |
 |---|---|---|---|
-| GLM | 0.80 | 0.36 | 55.00% |
-| XGBoost | 5.25 | 1.25 | 76.19% |
-| BNN | 106.12 | 98.75 | 6.94% |
+| GLM | 1.01 | 0.52 | 48.51% |
+| XGBoost | 6.75 | 1.69 | 74.96% |
+| BNN | 145.03 | 130.33 | 10.14% |
 
 ### Risk-coverage curve (BNN-MB)
 
